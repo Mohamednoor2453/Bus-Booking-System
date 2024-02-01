@@ -1,0 +1,75 @@
+/* public/styles.css */
+
+body {
+    /* Set the background image */
+    background-image: url('./image1.jpg');
+
+    /* Adjust background properties */
+    background-size: cover; /* or contain, depending on your preference */
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    /* Add other styles as needed */
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* Common styling for both pages */
+
+h1.logo {
+    margin: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navigation {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 1em;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.5em 1em;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    margin-left: 1em;
+}
+
+.main {
+    padding: 2em;
+}
+
+.header {
+    color: #333;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+

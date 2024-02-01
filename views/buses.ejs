@@ -1,0 +1,77 @@
+<!-- buses.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buses Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px;
+        }
+
+        li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .book-now-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Buses</h1>
+
+    <ul>
+        <% routes.forEach(route => { %>
+            <li>
+                <div>
+                    <p>Origin: <%= route.origin %></p>
+                    <p>Destination: <%= route.destination %></p>
+                    <p>Fare: <%= route.fare %></p>
+                </div>
+                <form class="book-now-form" action="/book" method="post">
+                    <!-- Pass the route details as hidden input fields -->
+                    <input type="hidden" name="origin" value="<%= route.origin %>">
+                    <input type="hidden" name="destination" value="<%= route.destination %>">
+                    <input type="hidden" name="fare" value="<%= route.fare %>">
+                    <button type="submit">Book Now</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>

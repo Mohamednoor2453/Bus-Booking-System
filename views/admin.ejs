@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/admin.css">
+  <title>Admin Dashboard</title>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Admin Dashboard</h1>
+    <!-- Update the form action to /admin/add-route and set the method to post -->
+    <form id="routeForm" action="/admin/add-route" method="post">
+      <label for="origin">Origin:</label>
+      <input type="text" id="origin" name="origin" required>
+
+      <label for="destination">Destination:</label>
+      <input type="text" id="destination" name="destination" required>
+
+      <label for="fare">Fare:</label>
+      <input type="number" id="fare" name="fare" required>
+
+      <!-- Update the button type to submit -->
+      <button type="submit">Add Route</button>
+    </form>
+  </div>
+
+  <script> 
+    // admin.js
+
+    async function addRoute() {
+        const origin = document.getElementById('origin').value;
+        const destination = document.getElementById('destination').value;
+        const fare = document.getElementById('fare').value;
+
+        try {
+            const response = await fetch('/admin/add-route', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ origin, destination, fare }),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                alert('Route added successfully');
+                // Redirect to the buses page
+                window.location.href = '/buses';
+            } else {
+                alert('Error adding route');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Internal Server Error');
+        }
+    }
+
+  </script>
+</body>
+</html>
