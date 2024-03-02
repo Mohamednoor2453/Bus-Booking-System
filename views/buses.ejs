@@ -8,15 +8,60 @@
     <title>Buses Page</title>
     <style>
         body {
+            /* Set the background image */
+            background-image: url('./bus2.jpg');
+            /* Adjust background properties */
+            background-size: cover; /* or contain, depending on your preference */
+            background-position: center center;
+            background-repeat: no-repeat;
+            /* Add other styles as needed */
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        body {
             font-family: 'Arial', sans-serif;
             background-color: #f5f5f5;
             margin: 0;
             padding: 0;
         }
 
+        header {
+            background-color: #007bff;
+            padding: 10px 0;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+        }
+
+        .logo {
+            margin: 0;
+        }
+
+        .navigation {
+            margin-top: 10px;
+        }
+
+        .navigation a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navigation a:hover {
+            background-color: #0056b3;
+        }
+
         h1 {
             text-align: center;
-            color: #333;
+            color: green;
         }
 
         ul {
@@ -53,6 +98,17 @@
     </style>
 </head>
 <body>
+
+    <header>
+        <h1 class="logo">UrbanExpress</h1>
+        <nav class="navigation">
+            <a href="/" class="contacts-page">Home</a>
+            <a href="/contact" class="login-page">Contact Us</a>
+            <a href="/about" class="contacts-page">About Us</a>
+        </nav>
+    </header>
+
+
     <h1>Buses</h1>
 
     <ul>
@@ -63,13 +119,17 @@
                     <p>Destination: <%= route.destination %></p>
                     <p>Fare: <%= route.fare %></p>
                 </div>
-                <form class="book-now-form" action="/book" method="post">
-                    <!-- Pass the route details as hidden input fields -->
-                    <input type="hidden" name="origin" value="<%= route.origin %>">
-                    <input type="hidden" name="destination" value="<%= route.destination %>">
+                <!-- Modify the form inside the <li> element -->
+                 <form class="book-now-form" action="/booking" method="post">
+    <!-- Pass the route details as hidden input fields -->
+                      <input type="hidden" name="origin" value="<%= route.origin %>">
+                     <input type="hidden" name="destination" value="<%= route.destination %>">
+    <!-- Add a hidden input field for the fare price -->
                     <input type="hidden" name="fare" value="<%= route.fare %>">
-                    <button type="submit">Book Now</button>
-                </form>
+    <!-- Change the button type to submit -->
+                   <button type="submit">Book Now</button>
+              </form>
+
             </li>
         <% }); %>
     </ul>

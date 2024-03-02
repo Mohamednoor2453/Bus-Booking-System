@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +7,18 @@
   <title>Admin Dashboard</title>
 </head>
 <body>
+  <header>
+    <h1 class="logo">UrbanExpress</h1>
+    <nav class="navigation">
+        <a href="/" class="login-page">Home</a>
+        <a href="/contact" class="contacts-page">Contact Us</a>
+        <a href="/about" class="contacts-page">About Us</a>
+        <a href="/buses" class="contacts-page">Buses</a>
+    </nav>
+</header>
 
   <div class="container">
     <h1>Admin Dashboard</h1>
-    <!-- Update the form action to /admin/add-route and set the method to post -->
     <form id="routeForm" action="/admin/add-route" method="post">
       <label for="origin">Origin:</label>
       <input type="text" id="origin" name="origin" required>
@@ -22,43 +29,44 @@
       <label for="fare">Fare:</label>
       <input type="number" id="fare" name="fare" required>
 
-      <!-- Update the button type to submit -->
       <button type="submit">Add Route</button>
     </form>
+
+    <ul id="routesList">
+      <% routes.forEach(route => { %>
+        <li>
+          <div>
+            <p>Origin: <%= route.origin %></p>
+            <p>Destination: <%= route.destination %></p>
+            <p>Fare: <%= route.fare %></p>
+          </div>
+          <button onclick="deleteRoute('<%= route._id %>')">Delete</button>
+        </li>
+      <% }); %>
+    </ul>
   </div>
 
-  <script> 
-    // admin.js
+  <script>
+    async function deleteRoute(routeId) {
+      try {
+        const response = await fetch(`/admin/delete-route/${routeId}`, {
+          method: 'DELETE',
+        });
 
-    async function addRoute() {
-        const origin = document.getElementById('origin').value;
-        const destination = document.getElementById('destination').value;
-        const fare = document.getElementById('fare').value;
+        const data = await response.json();
 
-        try {
-            const response = await fetch('/admin/add-route', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ origin, destination, fare }),
-            });
-
-            const data = await response.json();
-
-            if (data.success) {
-                alert('Route added successfully');
-                // Redirect to the buses page
-                window.location.href = '/buses';
-            } else {
-                alert('Error adding route');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('Internal Server Error');
+        if (data.success) {
+          alert('Route deleted successfully');
+          // Reload the admin page to reflect changes
+          window.location.reload();
+        } else {
+          alert('Error deleting route');
         }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Internal Server Error');
+      }
     }
-
   </script>
 </body>
 </html>

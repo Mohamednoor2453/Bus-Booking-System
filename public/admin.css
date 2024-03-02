@@ -1,45 +1,142 @@
+/* admin.css */
+
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-  }
-  
+  /* Set the background image */
+  background-image: url('./bus3.jpg');
+
+  /* Adjust background properties */
+  background-size: cover; /* or contain, depending on your preference */
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  /* Add other styles as needed */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: #333; /* Change text color */
+}
+
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Container styles */
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* admin.css */
+
+/* Navigation styles */
+header {
+  background-color: #007bff;
+  padding: 10px 0;
+  color: #fff;
+}
+
+.logo {
+  margin: 0;
+}
+
+.navigation {
+  margin-top: 10px;
+}
+
+.navigation a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+  margin: 0 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.navigation a:hover {
+  background-color: #0056b3;
+}
+
+
+/* Heading styles */
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form styles */
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button[type="submit"],
+button.delete {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.delete {
+  background-color: #f44336;
+}
+
+/* List styles */
+ul {
+  list-style: none;
+}
+
+li {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+li div {
+  margin-bottom: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
   .container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    margin-bottom: 8px;
-  }
-  
-  input {
-    padding: 8px;
-    margin-bottom: 16px;
-  }
-  
-  button {
-    background-color: #4caf50;
-    color: #fff;
     padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
   }
-  
-  button:hover {
-    background-color: #45a049;
+
+  input[type="text"],
+  input[type="number"] {
+    width: calc(100% - 20px);
+    padding: 6px;
   }
-  
+}

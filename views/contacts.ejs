@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | UrbanExpress</title>
+    <link rel="stylesheet" href="/contact.css">
+</head>
+<body>
+    
+    <header>
+        <h1 class="logo">UrbanExpress</h1>
+        <nav class="navigation">
+            <a href="/login" class="login-page">Login</a>
+            <a href="/" class="contacts-page">Home</a>
+            <a href="/about" class="contacts-page">About Us</a>
+        </nav>
+    </header>
+        
+   
+
+    <div class="container">
+        <h1>Contact Us</h1>
+        <div class="contact-form">
+            <h2>Send us a Message</h2>
+            <form action="/submit-message" method="post">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="support-section">
+            <h2>Customer Support</h2>
+            <p>If you need immediate assistance, our customer support team is available 24/7. Please contact us through the following options:</p>
+            <ul>
+                <li>Email: support@urbanexpress.com</li>
+                <li>Phone: +254745827403</li>
+                <li>Live Chat: Visit our website to chat with a support representative.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>Thank you for choosing UrbanExpress. We appreciate your feedback and look forward to serving you!</p>
+    </footer>
+</body>
+</html>
