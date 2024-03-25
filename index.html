@@ -1,0 +1,119 @@
+<!-- views/home.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/slideshow.css"> New stylesheet for slideshow -->
+    <style>
+        * {
+      
+            box-sizing: border-box;
+          }
+    /* Create two equal columns that floats next to each other */
+    .column {
+      float: left;
+      width: 50%;
+      padding: 10px;
+     
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+      margin-bottom:400px;
+     
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="logo">UrbanExpress</h1>
+        <nav class="navigation">
+            <a href="/login" class="login-page">Login</a>
+            <a href="/contact" class="contacts-page">Contact Us</a>
+            <a href="/about" class="contacts-page">About Us</a>
+        </nav>
+    </header>
+
+    <div class="row" style="margin-left: 120px; margin-right: 70px;" >
+
+        <div class="column">
+            <img src="https://i.pinimg.com/564x/63/7d/b9/637db92a9711495c13179c43dbd875b9.jpg" alt="bus">
+        </div>
+        <div class="column" >
+            <p>Welcome to UrbanExpress! We are your premier transportation service, providing convenient and reliable
+                travel options for all your needs.</p>
+            <p>With UrbanExpress, you can explore the top routes in comfort and style. Whether you're commuting to work,
+                heading out for a weekend getaway, or planning a vacation, we've got you covered.</p>
+        </div>
+    </div>
+
+    <section class="content">
+        <h1 class="header">Top Routes</h1>
+        <div class="route-images">
+            <img src="./route1.jpg" alt="Route 1" class="route">
+            <img src="./route2.jpg" alt="Route 2" class="route">
+            <img src="./route3.jpg" alt="Route 3" class="route">
+            <img src="./route4.jpg" alt="Route 4" class="route">
+            <!-- Add more route images as needed -->
+        </div>
+    </section>
+    </main>
+    <footer>
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/terms-and-conditions">Terms and Conditions</a>
+        </div>
+        <div class="footer-links">
+            <a href="/contact">Contact Us</a>
+            <!-- Add social media links -->
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <!-- Add more social media links as needed -->
+        </div>
+    </footer>
+
+    <!-- JavaScript for slideshow -->
+    <script>
+        // public/slideshow.js
+
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides(n) {
+            let i;
+            const slides = document.getElementsByClassName("bus-slide");
+            if (n === undefined) {
+                slideIndex++;
+            } else {
+                slideIndex = n;
+            }
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            if (slideIndex < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>

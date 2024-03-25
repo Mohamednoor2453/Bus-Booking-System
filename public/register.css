@@ -31,7 +31,7 @@ header {
     top: 0; /* Position it at the top of the viewport */
     width: 100%; /* Take full width */
     z-index: 1000; /* Ensure it appears above other elements */
-    background-color: #333;
+    background: linear-gradient(to right, #4CAF50, #272a2b);
     color: #fff;
     padding: 15px;
     display: flex;
@@ -96,7 +96,7 @@ input[type="password"] {
 
 input[type="submit"] {
     width: 100%;
-    background-color: #333;
+    background-color: #4CAF50;
     color: #fff;
     padding: 10px;
     border: none;

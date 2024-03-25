@@ -1,28 +1,33 @@
 const nodemailer = require('nodemailer');
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: EMAIL_PASS
-  }
-});
+function sendEmail(req, res, next) {
+    if (req.isAuthenticated()) {
+        const userEmail = req.user.email;
+        const {origin, destination, fare} = req.body
+        let transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'mohamednoornoor10@gmail.com',
+                pass: 'fuol gcea kzhw mecj'
+            }
+        });
 
-const mailOptions = {
-  from: process.env.EMAIL_USER ,
-  to: req.body.email,
-  subject: 'Sending Email using Node.js',
-  text: 'That was easy!'
-};
+        let mailOptions = {
+            from: 'mohamednoornoor10@gmail.com',
+            to: userEmail,
+            subject: 'Urban express booking ticket',
+            text: `This is your ticket. Your booking from ${origin} to ${destination} with fare ${fare} was successful.`
+        };
 
-transporter.sendMail(mailOptions, function(error, info){
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('Email sent: ' + info.response);
-  }
-});
-
-module.exports = {
-  transporter, mailOptions
+        transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('Email sent: ' + info.response);
+            }
+        });
+    }
+    next();
 }
+
+module.exports = sendEmail;

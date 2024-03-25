@@ -1,32 +1,99 @@
+
+
+
+
 <!-- views/home.ejs -->
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="/styles.css">
-</head>
+
+<%- include('./partials/head.ejs')%>
+
 <body>
-    <header>
-        <h1 class="logo">UrbanExpress</h1>
-        <nav class="navigation">
-            <a href="/login" class="login-page">Login</a>
-            <a href="/contact" class="contacts-page">Contact Us</a>
-            <a href="/about" class="contacts-page">About Us</a>
-        </nav>
-    </header>
-    <main>
-        <section class="content">
-            <h1 class="header">The UrbanExpress</h1>
-            <p>The UrbanExpress provides travelers with genuine comfort they deserve from the time you book a ticket to the time you board the bus.</p>
-            <p>Experience the convenience of our modern buses, equipped with comfortable seating and the latest amenities.</p>
-            <p>Travel with UrbanExpress for a journey that combines efficiency, safety, and comfort.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 UrbanExpress. All rights reserved.</p>
-    </footer>
+
+    <%- include('./partials/navs.ejs')%>
+  
+
+    
+        <div class="image" style="padding-top: 100px;">
+            <div class="paragraph1" >
+                <p>Welcome to UrbanExpress! We are your premier transportation service, providing convenient and
+                    reliable
+                    travel options for all your needs.</p>
+                
+            </div>
+
+        <div class="grid-container">
+            <div class="grid-item">
+              <img
+                src="https://i.pinimg.com/236x/ea/03/89/ea0389b7cc4678a3a01f2534e9d40042.jpg"
+                alt="nai"
+
+              />
+              <h3>Nairobi - Kisumu</h3>
+            </div>
+            <div class="grid-item">
+              <img
+                src="https://i.pinimg.com/236x/10/88/6d/10886d0c6f3e24da677fecf24f651933.jpg"
+                alt="mombasa"
+              />
+              <h3>mombasa - Nairobi</h3>
+            </div>
+            <div class="grid-item">
+              <img
+                src="https://i.pinimg.com/236x/06/12/a1/0612a107aba7bfd4de0a0b2dd0c88601.jpg"
+                alt="narok"
+              />
+              <h3>Kisumu - Eldoret</h3>
+            </div>
+            <div class="grid-item">
+              <img
+                src="https://i.pinimg.com/236x/9b/73/bc/9b73bc7d0853b4b9c2d35133f2168e1f.jpg"
+                alt="kisumu"
+              />
+              <h3>Eldoret - Nairobi</h3>
+            </div>
+          </div>
+
+          <div class="grid-container">
+            <div class="grid-item">
+              <img
+                src="https://i.pinimg.com/236x/cd/d6/b7/cdd6b7d99fd609fa065bc38c73fac6c9.jpg"
+                alt="nai"
+              />
+              <h3>Nairobi - Narok</h3>
+            </div>
+            <div class="grid-item">
+              <img
+                src="https://i.pinimg.com/236x/b8/9d/3c/b89d3c14648af7273b822547fcd7ca26.jpg"
+                alt="eldoret"
+              />
+              <h3>Nairobi - Kericho</h3>
+            </div>
+            <div class="grid-item">
+              <img
+                src="https://i.pinimg.com/236x/20/64/23/206423e62f52ec47be18bd47a7f6889d.jpg"
+                alt="mwea"
+              />
+              <h3>Nairobi - Mwea</h3>
+            </div>
+            <div class="grid-item">
+              <img
+                src="https://i.pinimg.com/236x/78/7c/75/787c758c9a07c71660c8e5e93549244c.jpg"
+                alt="Nakuru"
+              />
+              <h3> Nairobi- Nakuru</h3>
+            </div>
+          </div>
+
+
+ 
+          <%- include('./partials/footer.ejs')%>
+
+  
+
+
+
 </body>
+
 </html>

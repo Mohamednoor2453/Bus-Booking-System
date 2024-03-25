@@ -8,13 +8,16 @@ const session = require('express-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const initializePassport = require('./passport-config');
+// const sendEmail = require('./email.js');
 
 
+//routes
 const adminRouter = require('./Routes/admin.js');
 const userRouter = require('./Routes/auth.js')
 const bookingRouter = require('./Routes/booking.js')
 const routsRouter = require('./Routes/routes.js')
 const contactRouter = require('./Routes/contacts.js')
+const graphsRouter = require('./Routes/graphs.js')
 
 const app = express();
 
@@ -28,11 +31,15 @@ const app = express();
    resave: false,
    saveUninitialized: false
  }));
+ 
  app.use(flash());
  app.use(passport.initialize());
  app.use(passport.session());
  app.use(morgan('dev'));
+//  app.use(sendEmail)
 
+
+ 
  //setting view engine
  app.set('view engine', 'ejs')
 
@@ -45,12 +52,17 @@ mongoose.connect(dbURI)
 //initializing passport
 initializePassport(passport);
 
-//routes
+//routes midleware
 app.use('/', adminRouter);
 app.use('/', userRouter);
 app.use('/', bookingRouter)
 app.use('/', routsRouter)
 app.use('/', contactRouter)
+app.use('/', graphsRouter)
+
+
+
+
 
 // Rendering 404 page for mispath
 app.use((req, res) => {
@@ -69,3 +81,4 @@ const port = process.env.PORT
 app.listen(port, ()=>{
   console.log('Server running and listening to incoming requests')
 })
+

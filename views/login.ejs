@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/login.css">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+
+
+
+    
 </head>
 <body>
-    <header>
-        <h1 class="logo">UrbanExpress</h1>
-        <nav class="navigation">
-            <a href="/" class="login-page">Home</a>
-            <a href="/contact" class="contacts-page">Contact Us</a>
-            <a href="/about" class="contacts-page">About Us</a>
-        </nav>
-    </header>
+    <%- include('./partials/navs.ejs')%>
+    
     <form action="/login" method="post">
         <h2>Login</h2>
         <label for="email">Email:</label>
@@ -27,6 +25,8 @@
 
         <p>If you don't have an account <a href="/register">Register now</a></p>
     </form>
+    
+   
 </body>
 </html> 
 

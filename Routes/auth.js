@@ -27,22 +27,31 @@ router.post('/register', async (req, res) => {
   });
 
   // Confirmation of user login
-  router.post('/login',
-passport.authenticate('local', {
-  successRedirect: '/buses',
-  failureRedirect: '/register',
-  failureFlash: true
-})
-);
 
-router.get('/login', (req, res) => {
-    // Render login.ejs with adminLogin set to true for admin login
-    res.render('login.ejs', );
+  router.post('/login', (req, res, next) => {
+    passport.authenticate('local', (err, user, info) => {
+      if (err) {
+        return next(err);
+      }
+      if (!user) {
+        return res.redirect('/register'); // Redirect to register page on authentication failure
+      }
+      req.logIn(user, (err) => {
+        if (err) {
+          return next(err);
+        }
+        return res.redirect(info.redirectUrl); // Redirect based on the redirectUrl provided by passport
+      });
+    })(req, res, next);
   });
-
+  
+  router.get('/login', (req, res) => {
+    // Render login.ejs with adminLogin set to true for admin login
+    res.render('login.ejs');
+  });
+  
   router.get('/register', (req, res) => {
     res.render('register.ejs');
   });
-
 
   module.exports = router

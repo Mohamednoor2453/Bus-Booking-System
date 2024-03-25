@@ -3,8 +3,19 @@ const router = express.Router()
 
 const Route = require('../models/Route.js');
 
+
+// Define isAuthenticated function
+const isAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/login'); // Redirect to login page if user is not authenticated
+};
+
+
+
 //admin post route
-router.post('/admin/add-route', async (req, res) => {
+router.post('/admin/add-route', isAuthenticated, async (req, res) => {
   
     try {
       const { origin, destination, fare } = req.body;
@@ -25,7 +36,7 @@ router.post('/admin/add-route', async (req, res) => {
   });
 
   //displaying routes in the admin page
-  router.get('/admin', async (req, res) => {
+  router.get('/admin',  isAuthenticated, async (req, res) => {
 
     try {
       const routes = await Route.find()//fetching route from db
@@ -39,7 +50,7 @@ router.post('/admin/add-route', async (req, res) => {
    });
 
 // Define route for deleting a route
-router.delete('/admin/delete-route/:id', async (req, res) => {
+router.delete('/admin/delete-route/:id', isAuthenticated, async (req, res) => {
     const routeId = req.params.id;
   
     try {

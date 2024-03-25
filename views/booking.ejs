@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +17,7 @@
     <form id="bookingForm">
         <label for="amount">Amount:</label>
         <input type="text" id="amount" name="amount" value="<%= fare %>" readonly required>
+       
         <label for="phone">Phone:</label>
         <input type="text" id="phone" name="phone" required>
         <button type="button" onclick="submitBooking()">Pay Now</button>
@@ -32,26 +35,27 @@
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     alert('Payment request sent successfully!');
-                    setTimeout(sendEmail, 25000); // Wait for 25 seconds before sending email
+                    setTimeout(sendEmail, 40000); // Wait for 40 seconds before sending email
                 }
             };
 
             xhr.send(JSON.stringify({ amount, phone }));
         }
 
-        function sendEmail() {
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', '/send-email', true);
-            xhr.setRequestHeader('Content-Type', 'application/json');
+        //function sendEmail() {
+           // const xhr = new XMLHttpRequest();
+            //xhr.open('POST', '/send-email', true);
+            x//hr.setRequestHeader('Content-Type', 'application/json');
 
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    alert('Email sent successfully!');
-                }
-            };
+            //xhr.onreadystatechange = function () {
+              //  if (xhr.readyState === 4 && xhr.status === 200) {
+                //    alert('Email sent successfully!');
+                //}
+            //};
 
-            xhr.send();
-        }
+            //xhr.send();
+        //}
+
     </script>
 </body>
 </html>
